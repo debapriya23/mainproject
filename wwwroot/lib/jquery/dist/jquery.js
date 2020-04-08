@@ -2313,12 +2313,12 @@ function condense( unmatched, map, filter, context, xml ) {
 	return newUnmatched;
 }
 
-function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postSelector ) {
+function setMatcher( preFilter, selector, matcher, postFilter, postFinder, Postelector ) {
 	if ( postFilter && !postFilter[ expando ] ) {
 		postFilter = setMatcher( postFilter );
 	}
 	if ( postFinder && !postFinder[ expando ] ) {
-		postFinder = setMatcher( postFinder, postSelector );
+		postFinder = setMatcher( postFinder, Postelector );
 	}
 	return markFunction(function( seed, results, context, xml ) {
 		var temp, i, elem,

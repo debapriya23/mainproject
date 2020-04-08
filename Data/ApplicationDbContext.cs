@@ -13,7 +13,7 @@ namespace AuthRoleBased.Data
             : base(options)
         {
         }
+        public DbSet<Post> Post { get; set; }
 
-        
     }
 }

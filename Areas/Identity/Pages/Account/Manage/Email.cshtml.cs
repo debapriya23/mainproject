@@ -111,7 +111,7 @@ namespace AuthRoleBased.Areas.Identity.Pages.Account.Manage
             return RedirectToPage();
         }
 
-        public async Task<IActionResult> OnPostSendVerificationEmailAsync()
+        public async Task<IActionResult> OnPostendVerificationEmailAsync()
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)

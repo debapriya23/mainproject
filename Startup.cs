@@ -12,6 +12,7 @@ using AuthRoleBased.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using KOODLE.Data.FileManager;
 
 namespace AuthRoleBased
 {
@@ -33,6 +34,9 @@ namespace AuthRoleBased
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             // .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddTransient<IFileManager, FileManage>();
+
             services.AddRazorPages();
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultUI().AddEntityFrameworkStores<ApplicationDbContext>();
@@ -64,6 +68,8 @@ namespace AuthRoleBased
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseAuthentication();
             app.UseAuthorization();
